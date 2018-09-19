@@ -21,11 +21,11 @@ public class AgendamentoListAdapter extends RecyclerView.Adapter<AgendamentoList
     private TelaAgendamento activity;
     private AppCompatImageView fabRemove;
 
-    public ListAdapter(Context context, List<Agendamento> list) {
-        this.mContext = context;
-        this.activity = (TelaAgendamento) context;
-        this.mList = list;
-    }
+//    public ListAdapter(Context context, List<Agendamento> list) {
+//        this.mContext = context;
+//        this.activity = (TelaAgendamento) context;
+//        this.mList = list;
+//    }
 
     @Override
     public AgendamentoListAdapter.RecycleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

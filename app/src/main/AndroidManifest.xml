@@ -19,11 +19,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Telas.TelaAgendamento"
-            android:label="Agendamentos"
-            />
+        <activity
+            android:name=".Telas.TelaAgendamento"
+            android:label="Agendamentos" />
         <activity android:name=".Telas.TelaProfissional" />
         <activity android:name=".Telas.TelaProcedimento" />
+        <activity android:name=".Telas.CadastroClienteActivity" />
+        <activity android:name=".Telas.CadastroProfissionalActivity" />
+        <activity android:name=".Telas.CadastroProcedimentoActivity" />
+        <activity android:name=".Telas.LoginActivity" />
     </application>
 
 </manifest>
