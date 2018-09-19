@@ -13,6 +13,9 @@ import com.example.rtietjen2.trabalhoapp.R;
 public class MenuPrincipal extends AppCompatActivity {
 
     private Button btAgendamento;
+    private Button btCliente;
+    private Button btProcedimento;
+    private Button btProfissional;
     private TextInputEditText etLogin ,etSenha ;
 
     @Override
@@ -22,16 +25,71 @@ public class MenuPrincipal extends AppCompatActivity {
 
 
         this.btAgendamento = this.findViewById(R.id.btAgendamento);
+        this.btCliente = this.findViewById(R.id.btCliente);
+        this.btProcedimento = this.findViewById(R.id.btProcedimento);
+        this.btProfissional = this.findViewById(R.id.btProfissional);
 
         this.btAgendamento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String login = etLogin.getText().toString();
-                String senha = etSenha.getText().toString();
-
-
                     Intent intent = new Intent(MenuPrincipal.this,TelaAgendamento.class);
                     startActivity(intent);
+
+
+                // finish();
+                // Toast.makeText(getApplicationContext(),
+                //            "Entrar", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        this.btCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuPrincipal.this,TelaCliente.class);
+                startActivity(intent);
+
+
+                // finish();
+                // Toast.makeText(getApplicationContext(),
+                //            "Entrar", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        this.btProcedimento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuPrincipal.this,TelaProcedimento.class);
+                startActivity(intent);
+
+
+                // finish();
+                // Toast.makeText(getApplicationContext(),
+                //            "Entrar", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        this.btProfissional.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuPrincipal.this,TelaProfissional.class);
+                startActivity(intent);
+
+
+                // finish();
+                // Toast.makeText(getApplicationContext(),
+                //            "Entrar", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        this.btAgendamento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuPrincipal.this,TelaAgendamento.class);
+                startActivity(intent);
 
 
                 // finish();
