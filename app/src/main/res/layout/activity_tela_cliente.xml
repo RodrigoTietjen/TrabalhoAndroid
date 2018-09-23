@@ -20,6 +20,4 @@
         android:id="@+id/lista_cliente">
     </ListView>
 
-
-
 </LinearLayout>

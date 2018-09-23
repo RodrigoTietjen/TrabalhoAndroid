@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/etNome"
+            android:id="@+id/procedimento_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome:" />
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/etValor"
+            android:id="@+id/procedimento_valor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Valor"/>
