@@ -65,4 +65,12 @@ public class ClienteDAO extends SQLiteOpenHelper {
 
         return clientes;
     }
+
+    public void deletar(Cliente cliente) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String[] params = {cliente.getNome()};
+        db.delete("Clientes","nome = ? ",params);
+
+    }
 }

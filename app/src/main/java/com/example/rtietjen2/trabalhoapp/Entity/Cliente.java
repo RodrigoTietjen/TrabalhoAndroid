@@ -2,13 +2,25 @@ package com.example.rtietjen2.trabalhoapp.Entity;
 
 public class Cliente {
 
+    public int id;
+
     public String nome;
+
+
 
     public String telefone;
 
     public String endereco;
 
     public String email;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

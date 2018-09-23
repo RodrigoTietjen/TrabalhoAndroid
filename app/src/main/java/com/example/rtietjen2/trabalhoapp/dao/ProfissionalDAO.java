@@ -68,4 +68,11 @@ public class ProfissionalDAO extends SQLiteOpenHelper{
 
         return profissionais;
     }
+
+    public void deletar(Profissional profissional) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String[] params = {profissional.getNome()};
+        db.delete("Profissionais","nome = ? ",params);
+    }
 }

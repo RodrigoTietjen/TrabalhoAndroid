@@ -62,4 +62,10 @@ public class ProcedimentoDAO extends SQLiteOpenHelper {
         return procedimentos;
     }
 
+    public void deletar(Procedimento procedimento) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String[] params = {procedimento.getNome()};
+        db.delete("Procedimentos","nome = ? ",params);
+    }
 }

@@ -43,7 +43,7 @@ public class AgendamentoListAdapter extends RecyclerView.Adapter<AgendamentoList
     }
 
     protected class RecycleViewHolder
-            extends RecyclerView.ViewHolder {
+        extends RecyclerView.ViewHolder {
 
         protected TextView tvTarefa;
         protected AppCompatImageView llRow;
