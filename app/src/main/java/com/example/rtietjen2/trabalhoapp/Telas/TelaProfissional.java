@@ -10,7 +10,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.rtietjen2.trabalhoapp.Entity.Profissional;
 import com.example.rtietjen2.trabalhoapp.R;
+import com.example.rtietjen2.trabalhoapp.dao.ProfissionalDAO;
+
+import java.util.List;
 
 public class TelaProfissional  extends AppCompatActivity {
 
@@ -19,9 +23,12 @@ public class TelaProfissional  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_profissional);
 
-        String[] profissionais = {"Claudio","maki"};
+        ProfissionalDAO profissionalDAO = new ProfissionalDAO(this);
+        List<Profissional> profissionais = profissionalDAO.buscaProfissionais();
+        profissionalDAO.close();
+
         ListView listaProfissionais = findViewById(R.id.lista_profissionais);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, profissionais);
+        ArrayAdapter<Profissional> adapter = new ArrayAdapter<Profissional>(this,android.R.layout.simple_list_item_1, profissionais);
         listaProfissionais.setAdapter(adapter);
 
         Button cadastrarProfissional = findViewById(R.id.btCadastrar_profissional);

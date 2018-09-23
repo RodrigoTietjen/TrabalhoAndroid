@@ -20,9 +20,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         this.btEntrar = this.findViewById(R.id.btEntrar);
-        this.etLogin    = this.findViewById(R.id.etLogin);
-        this.etSenha = this.findViewById(R.id.etSenha);
-
+        this.etLogin  = this.findViewById(R.id.etLogin);
+        this.etSenha  = this.findViewById(R.id.etSenha);
 
         this.btEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,15 +30,11 @@ public class LoginActivity extends AppCompatActivity {
                 String senha = etSenha.getText().toString();
 
                 if (login.equals("1") && senha.equals("1")){
-
-                    //   LoginUtil.save(getApplicationContext(),login,senha);
-
                     Intent intent = new Intent(LoginActivity.this,MenuPrincipal.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(),
                             "Bloqueado", Toast.LENGTH_SHORT).show();
-                    //R.string.bloqueado,
                 }
 
             }

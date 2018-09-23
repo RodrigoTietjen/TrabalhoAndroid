@@ -56,5 +56,8 @@ public class Profissional {
         this.senha = senha;
     }
 
-
+    @Override
+    public String toString() {
+        return getNome();
+    }
 }
