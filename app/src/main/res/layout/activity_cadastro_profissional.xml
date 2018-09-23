@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/etNome"
+            android:id="@+id/profissional_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome:" />
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/etEspecialidade"
+            android:id="@+id/profissional_especialidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Especialidade"/>
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/etTelefone"
+            android:id="@+id/profissional_telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefone"/>
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/etLogin"
+            android:id="@+id/profissional_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Login"/>
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/etSenha"
+            android:id="@+id/profissional_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Senha"

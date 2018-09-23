@@ -42,10 +42,6 @@ public class LoginActivity extends AppCompatActivity {
                     //R.string.bloqueado,
                 }
 
-                // finish();
-                // Toast.makeText(getApplicationContext(),
-                //            "Entrar", Toast.LENGTH_SHORT).show();
-
             }
         });
     }
