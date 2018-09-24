@@ -11,7 +11,7 @@
             android:id="@+id/btCadastrar_profissional"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cadastrar profissional"/>
+            android:text="Cadastrar novo profissional"/>
     </LinearLayout>
     
     <ListView

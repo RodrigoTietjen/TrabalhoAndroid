@@ -11,7 +11,7 @@
             android:id="@+id/btCadastrar_procedimento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cadastrar procedimento"/>
+            android:text="Cadastrar novo procedimento"/>
     </LinearLayout>
 
     <ListView

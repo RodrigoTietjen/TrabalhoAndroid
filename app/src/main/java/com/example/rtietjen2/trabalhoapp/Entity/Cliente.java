@@ -1,6 +1,8 @@
 package com.example.rtietjen2.trabalhoapp.Entity;
 
-public class Cliente {
+import java.io.Serializable;
+
+public class Cliente implements Serializable{
 
     public int id;
 

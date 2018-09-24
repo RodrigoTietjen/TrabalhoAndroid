@@ -11,7 +11,7 @@
             android:id="@+id/btCadastrar_cliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cadastrar cliente"/>
+            android:text="Cadastrar novo cliente"/>
     </LinearLayout>
 
     <ListView
