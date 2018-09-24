@@ -5,9 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import com.example.rtietjen2.trabalhoapp.Entity.Cliente;
 import com.example.rtietjen2.trabalhoapp.Entity.Profissional;
+import com.example.rtietjen2.trabalhoapp.Telas.CadastroClienteActivity;
+import com.example.rtietjen2.trabalhoapp.Telas.TelaCliente;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +74,11 @@ public class ClienteDAO extends SQLiteOpenHelper {
 
         String[] params = {cliente.getNome()};
         db.delete("Clientes","nome = ? ",params);
+
+    }
+
+    public void alterar(Cliente cliente) {
+
 
     }
 }
