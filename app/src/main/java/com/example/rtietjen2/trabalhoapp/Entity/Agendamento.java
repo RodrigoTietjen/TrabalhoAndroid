@@ -13,7 +13,7 @@ public class Agendamento {
 
     private Profissional profissional;
 
-    private List<Procedimento> procedimentos;
+    private Procedimento procedimentos;
 
     public LocalTime getHoraInicio() {
         return horaInicio;
@@ -47,11 +47,11 @@ public class Agendamento {
         this.profissional = profissional;
     }
 
-    public List<Procedimento> getProcedimentos() {
+    public Procedimento getProcedimentos() {
         return procedimentos;
     }
 
-    public void setProcedimentos(List<Procedimento> procedimentos) {
+    public void setProcedimentos(Procedimento procedimentos) {
         this.procedimentos = procedimentos;
     }
 }

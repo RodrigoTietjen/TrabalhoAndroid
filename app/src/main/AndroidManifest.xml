@@ -29,7 +29,8 @@
         <activity android:name=".Telas.CadastroProfissionalActivity" />
         <activity android:name=".Telas.CadastroProcedimentoActivity" />
         <activity android:name=".Telas.TelaAgendamento" />
-        <activity android:name=".Telas.CadastroAgendamentoActivity"></activity>
+        <activity android:name=".Telas.CadastroAgendamentoActivity" />
+        <activity android:name=".Telas.ClienteSelecionado"></activity>
     </application>
 
 </manifest>

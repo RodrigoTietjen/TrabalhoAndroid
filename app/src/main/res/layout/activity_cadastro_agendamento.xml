@@ -8,6 +8,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cadastro de agendamento: " />
+    <TextView
+        android:id="@+id/cliente_selecionado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cliente: " />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btBuscar_cliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar cliente"/>
+    </LinearLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"

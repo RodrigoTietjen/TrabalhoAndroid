@@ -98,7 +98,7 @@ public class TelaCliente extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 Intent intentLigar = new Intent(Intent.ACTION_CALL);
-                intentLigar.setData(Uri.parse("tel:" + "99998585"));
+                intentLigar.setData(Uri.parse("tel:" + cliente.getTelefone()));
                 if (ActivityCompat.checkSelfPermission(TelaCliente.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions
