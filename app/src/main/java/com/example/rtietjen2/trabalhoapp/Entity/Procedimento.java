@@ -1,10 +1,22 @@
 package com.example.rtietjen2.trabalhoapp.Entity;
 
-public class Procedimento {
+import java.io.Serializable;
+
+public class Procedimento implements Serializable{
+
+    public int id;
 
     private String nome;
 
     private double valor;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome(){
         return this.nome;

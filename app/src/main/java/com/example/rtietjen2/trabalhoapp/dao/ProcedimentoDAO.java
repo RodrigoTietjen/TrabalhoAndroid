@@ -13,15 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProcedimentoDAO extends SQLiteOpenHelper {
+    public Context context;
 
     public ProcedimentoDAO(Context context) {
-        super(context, "Projeto", null, 4);
-
+        super(context, "Projeto", null, 5);
+        this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "create table Procedimentos (id integer primary key," +
+        String sql = "create table Procedimentos (id integer primary key AUTOINCREMENT," +
                      "nome varchar(255)," +
                      "valor real)";
         db.execSQL(sql);
@@ -52,6 +53,7 @@ public class ProcedimentoDAO extends SQLiteOpenHelper {
         List<Procedimento> procedimentos = new ArrayList<Procedimento>();
         while (c.moveToNext()) {
             Procedimento procedimento = new Procedimento();
+            procedimento.setId(c.getInt(c.getColumnIndex("id")));
             procedimento.setNome(c.getString(c.getColumnIndex("nome")));
             procedimento.setValor(c.getDouble(c.getColumnIndex("valor")));
 
@@ -65,7 +67,19 @@ public class ProcedimentoDAO extends SQLiteOpenHelper {
     public void deletar(Procedimento procedimento) {
         SQLiteDatabase db = getReadableDatabase();
 
-        String[] params = {procedimento.getNome()};
-        db.delete("Procedimentos","nome = ? ",params);
+        String[] params = {Integer.toString(procedimento.getId())};
+        db.delete("Procedimentos","id  = ?",params);
+    }
+
+    public void alterar(Procedimento procedimento) {
+        SQLiteDatabase db = getReadableDatabase();
+        String[] params = {Integer.toString(procedimento.getId())};
+
+        ContentValues dados = new ContentValues();
+        dados.put("nome",procedimento.getNome());
+        dados.put("valor",procedimento.getValor());
+
+
+        db.update("Procedimentos",dados, "id = ?", params);
     }
 }

@@ -2,9 +2,12 @@ package com.example.rtietjen2.trabalhoapp.Entity;
 
 import com.example.rtietjen2.trabalhoapp.Enum.Especialidade;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Profissional {
+public class Profissional implements Serializable{
+
+    public int id;
 
     private String nome;
 
@@ -22,6 +25,14 @@ public class Profissional {
 
     public void setEspecialidades(List<Especialidade> especialidades) {
         this.especialidades = especialidades;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

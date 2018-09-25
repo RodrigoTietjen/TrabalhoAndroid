@@ -31,6 +31,19 @@ public class TelaProfissional  extends AppCompatActivity {
         listaProfissionais = findViewById(R.id.lista_profissionais);
         carregarListaProfissionais();
 
+        listaProfissionais.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> Lista, View item, int position, long id) {
+                Profissional profissional = (Profissional) listaProfissionais.getItemAtPosition(position);
+                Intent intentCadastroProfissional = new Intent(TelaProfissional.this,CadastroProfissionalActivity.class);
+                intentCadastroProfissional.putExtra("profissional",profissional);
+
+                startActivity(intentCadastroProfissional);
+                finish();
+
+            }
+        });
+
         Button cadastrarProfissional = findViewById(R.id.btCadastrar_profissional);
         cadastrarProfissional.setOnClickListener(new View.OnClickListener() {
             @Override

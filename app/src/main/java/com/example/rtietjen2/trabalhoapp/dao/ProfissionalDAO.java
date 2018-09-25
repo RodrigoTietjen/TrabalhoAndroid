@@ -13,14 +13,15 @@ import java.util.List;
 
 public class ProfissionalDAO extends SQLiteOpenHelper{
 
-
+    public Context context;
     public ProfissionalDAO(Context context) {
-        super(context, "Projeto", null, 4);
+        super(context, "Projeto", null, 5);
+        this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "create table Profissionais (id integer primary key," +
+        String sql = "create table Profissionais (id integer primary key AUTOINCREMENT," +
                                                   "nome varchar(255)," +
                                                   "especialidade varchar(255)," +
                                                   "telefone varchar(255)," +
@@ -57,6 +58,7 @@ public class ProfissionalDAO extends SQLiteOpenHelper{
         List<Profissional> profissionais = new ArrayList<Profissional>();
         while (c.moveToNext()) {
             Profissional profissional = new Profissional();
+            profissional.setId(c.getInt(c.getColumnIndex("id")));
             profissional.setNome(c.getString(c.getColumnIndex("nome")));
          //   profissional.setEspecialidades(c.getString(c.getColumnIndex("especialidade")));
             profissional.setTelefone(c.getString(c.getColumnIndex("telefone")));
@@ -72,7 +74,24 @@ public class ProfissionalDAO extends SQLiteOpenHelper{
     public void deletar(Profissional profissional) {
         SQLiteDatabase db = getReadableDatabase();
 
-        String[] params = {profissional.getNome()};
-        db.delete("Profissionais","nome = ? ",params);
+
+        String[] params = {Integer.toString(profissional.getId())};
+        db.delete("Profissionais","id = ? ",params);
+    }
+
+    public void alterar(Profissional profissional) {
+        SQLiteDatabase db = getReadableDatabase();
+        String[] params = {Integer.toString(profissional.getId())};
+
+        ContentValues dados = new ContentValues();
+        dados.put("nome",profissional.getNome());
+      //  dados.put("especialidade",profissional.getEspecialidades());
+        dados.put("telefone",profissional.getTelefone());
+        dados.put("login",profissional.getLogin());
+        dados.put("senha",profissional.getSenha());
+
+
+        db.update("Profissionais",dados, "id = ?", params);
+
     }
 }

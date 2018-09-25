@@ -39,7 +39,7 @@ public class TelaCliente extends AppCompatActivity {
 
 
         /**
-         * TODO
+         *
          * Click e abre o cadastro para editar(não popula com o cliente clicado)
          */
         listaClientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,12 +50,10 @@ public class TelaCliente extends AppCompatActivity {
                 intentCadastroCliente.putExtra("cliente",cliente);
 
                 startActivity(intentCadastroCliente);
-                Toast.makeText(TelaCliente.this,cliente.getNome(),Toast.LENGTH_SHORT).show();
+                finish();
+
             }
         });
-
-
-
 
         Button cadastrarCliente = findViewById(R.id.btCadastrar_cliente);
         cadastrarCliente.setOnClickListener(new View.OnClickListener() {

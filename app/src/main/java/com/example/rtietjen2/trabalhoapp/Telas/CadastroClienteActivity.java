@@ -63,6 +63,9 @@ public class CadastroClienteActivity extends AppCompatActivity {
                     }
                     else{
                         clienteDAO.alterar(CadastroClienteActivity.this.cliente);
+                        clienteDAO.close();
+                        CadastroClienteActivity.super.onResume();
+                        finish();
                     }
                     clienteDAO.buscaClientes();
                     clienteDAO.close();

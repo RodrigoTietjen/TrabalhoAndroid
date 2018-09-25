@@ -32,6 +32,19 @@ public class TelaProcedimento extends AppCompatActivity {
         listaProcedimentos = findViewById(R.id.lista_procedimentos);
         carregarListaProcedimento();
 
+        listaProcedimentos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> Lista, View item, int position, long id) {
+                Procedimento procedimento = (Procedimento) listaProcedimentos.getItemAtPosition(position);
+                Intent intentCadastroProcedimento = new Intent(TelaProcedimento.this,CadastroProcedimentoActivity.class);
+                intentCadastroProcedimento.putExtra("procedimento",procedimento);
+
+                startActivity(intentCadastroProcedimento);
+                finish();
+
+            }
+        });
+
         Button cadastarProcedimento = findViewById(R.id.btCadastrar_procedimento);
         cadastarProcedimento.setOnClickListener(new View.OnClickListener() {
             @Override
