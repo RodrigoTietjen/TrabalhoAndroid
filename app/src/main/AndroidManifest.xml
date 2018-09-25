@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rtietjen2.trabalhoapp">
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,13 +22,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".Telas.MenuPrincipal" />
-        <activity android:name=".Telas.TelaAgendamento" />
         <activity android:name=".Telas.TelaCliente" />
         <activity android:name=".Telas.TelaProfissional" />
         <activity android:name=".Telas.TelaProcedimento" />
         <activity android:name=".Telas.CadastroClienteActivity" />
         <activity android:name=".Telas.CadastroProfissionalActivity" />
         <activity android:name=".Telas.CadastroProcedimentoActivity" />
+        <activity android:name=".Telas.TelaAgendamento" />
+        <activity android:name=".Telas.CadastroAgendamentoActivity"></activity>
     </application>
 
 </manifest>

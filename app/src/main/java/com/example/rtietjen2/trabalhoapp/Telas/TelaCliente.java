@@ -40,14 +40,14 @@ public class TelaCliente extends AppCompatActivity {
 
         /**
          *
-         * Click e abre o cadastro para editar(não popula com o cliente clicado)
+         * Click e abre o cadastro para editaro
          */
         listaClientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> Lista, View item, int position, long id) {
                 Cliente cliente = (Cliente) listaClientes.getItemAtPosition(position);
-                Intent intentCadastroCliente = new Intent(TelaCliente.this,CadastroClienteActivity.class);
-                intentCadastroCliente.putExtra("cliente",cliente);
+                Intent intentCadastroCliente = new Intent(TelaCliente.this, CadastroClienteActivity.class);
+                intentCadastroCliente.putExtra("cliente", cliente);
 
                 startActivity(intentCadastroCliente);
                 finish();
@@ -59,7 +59,7 @@ public class TelaCliente extends AppCompatActivity {
         cadastrarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TelaCliente.this,CadastroClienteActivity.class);
+                Intent intent = new Intent(TelaCliente.this, CadastroClienteActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -72,7 +72,7 @@ public class TelaCliente extends AppCompatActivity {
         List<Cliente> clientes = clienteDAO.buscaClientes();
         clienteDAO.close();
 
-        ArrayAdapter<Cliente> adapter = new ArrayAdapter<Cliente>(this,android.R.layout.simple_list_item_1, clientes);
+        ArrayAdapter<Cliente> adapter = new ArrayAdapter<Cliente>(this, android.R.layout.simple_list_item_1, clientes);
         listaClientes.setAdapter(adapter);
     }
 
@@ -83,22 +83,32 @@ public class TelaCliente extends AppCompatActivity {
         final Cliente cliente = (Cliente) listaClientes.getItemAtPosition(info.position);
 
 
+        MenuItem itemSMS = menu.add("Enviar SMS");
+        Intent intentSMS = new Intent(Intent.ACTION_VIEW);
+        intentSMS.setData(Uri.parse("sms:" + cliente.getTelefone()));
+        itemSMS.setIntent(intentSMS);
+
         /**
-         * TODO
+         *
          * Ligação não funciona.
          */
         MenuItem ligar = menu.add("Ligar");
+
         ligar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if(ActivityCompat.checkSelfPermission(TelaCliente.this, Manifest.permission.CALL_PHONE)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(TelaCliente.this, new String[]{Manifest.permission.CALL_PHONE},122 );
-                }else {
-                    Intent intentLigar = new Intent(Intent.ACTION_CALL);
-                    intentLigar.setData(Uri.parse("tel:" + "99998585"));
-                    startActivity(intentLigar);
+                Intent intentLigar = new Intent(Intent.ACTION_CALL);
+                intentLigar.setData(Uri.parse("tel:" + "99998585"));
+                if (ActivityCompat.checkSelfPermission(TelaCliente.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
                 }
+                startActivity(intentLigar);
                 return false;
             }
         });
