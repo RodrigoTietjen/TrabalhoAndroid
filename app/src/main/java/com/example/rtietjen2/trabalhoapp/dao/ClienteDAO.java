@@ -16,13 +16,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClienteDAO extends SQLiteOpenHelper {
+    public Context context;
     public ClienteDAO(Context context) {
-        super(context, "Projeto", null, 4);
+
+        super(context, "Projeto", null, 5);
+        this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "create table Clientes (id integer primary key," +
+        String sql = "create table Clientes (id integer primary key AUTOINCREMENT," +
                      "nome varchar(255)," +
                      "telefone varchar(255)," +
                      "endereco varchar(255)," +
@@ -58,6 +61,7 @@ public class ClienteDAO extends SQLiteOpenHelper {
         List<Cliente> clientes = new ArrayList<Cliente>();
         while (c.moveToNext()) {
             Cliente cliente = new Cliente();
+            cliente.setId(c.getInt(c.getColumnIndex("id")));
             cliente.setNome(c.getString(c.getColumnIndex("nome")));
             cliente.setTelefone(c.getString(c.getColumnIndex("telefone")));
             cliente.setEndereco(c.getString(c.getColumnIndex("endereco")));
@@ -72,13 +76,23 @@ public class ClienteDAO extends SQLiteOpenHelper {
     public void deletar(Cliente cliente) {
         SQLiteDatabase db = getReadableDatabase();
 
-        String[] params = {cliente.getNome()};
-        db.delete("Clientes","nome = ? ",params);
+        String[] params = {Integer.toString(cliente.getId())};
+        Toast.makeText(this.context, Integer.toString(cliente.getId()), Toast.LENGTH_LONG).show();
+        db.delete("Clientes","id  = ?",params);
 
     }
 
     public void alterar(Cliente cliente) {
+        SQLiteDatabase db = getReadableDatabase();
+        String[] params = {Integer.toString(cliente.getId())};
 
+        ContentValues dados = new ContentValues();
+        dados.put("nome",cliente.getNome());
+        dados.put("telefone",cliente.getTelefone());
+        dados.put("endereco",cliente.getEndereco());
+        dados.put("email",cliente.getEmail());
+
+        db.update("Clientes",dados, "id = ?", params);
 
     }
 }

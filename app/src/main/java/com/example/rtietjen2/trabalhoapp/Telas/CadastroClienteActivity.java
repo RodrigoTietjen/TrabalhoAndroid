@@ -13,7 +13,7 @@ import com.example.rtietjen2.trabalhoapp.R;
 import com.example.rtietjen2.trabalhoapp.dao.ClienteDAO;
 
 public class CadastroClienteActivity extends AppCompatActivity {
-    private Cliente cliente;
+    public Cliente cliente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +26,16 @@ public class CadastroClienteActivity extends AppCompatActivity {
          */
         Intent intent = getIntent();
         Cliente cliente = (Cliente) intent.getSerializableExtra("cliente");
+        if(cliente == null){
+            this.cliente = new Cliente();
+        }
+        else{
+            this.cliente = cliente;
+        }
         if(cliente != null) {
             Toast.makeText(CadastroClienteActivity.this,cliente.getTelefone(),Toast.LENGTH_SHORT).show();
             populaCadastro(cliente);
         }
-
-
-        if(cliente != null){
-
-
-        }else {
             /**
              * Ao clicar em salvar (seta o objeto e slava no banco.
              */
@@ -43,32 +43,38 @@ public class CadastroClienteActivity extends AppCompatActivity {
             salvarCadCliente.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(CadastroClienteActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(CadastroClienteActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
 
-                    Cliente cliente = new Cliente();
                     ClienteDAO clienteDAO = new ClienteDAO(CadastroClienteActivity.this);
                     EditText campoNomeCliente = findViewById(R.id.cliente_nome);
-                    cliente.setNome(campoNomeCliente.getText().toString());
+                    CadastroClienteActivity.this.cliente.setNome(campoNomeCliente.getText().toString());
 
                     EditText campoTelefoneCliente = findViewById(R.id.cliente_telefone);
-                    cliente.setTelefone(campoTelefoneCliente.getText().toString());
+                    CadastroClienteActivity.this.cliente.setTelefone(campoTelefoneCliente.getText().toString());
 
                     EditText campoEnderecoCliente = findViewById(R.id.cliente_endereco);
-                    cliente.setEndereco(campoEnderecoCliente.getText().toString());
+                    CadastroClienteActivity.this.cliente.setEndereco(campoEnderecoCliente.getText().toString());
 
                     EditText campoEmailCliente = findViewById(R.id.cliente_email);
-                    cliente.setEmail(campoEmailCliente.getText().toString());
-
-                    clienteDAO.insere(cliente);
+                    CadastroClienteActivity.this.cliente.setEmail(campoEmailCliente.getText().toString());
+                    Toast.makeText(CadastroClienteActivity.this, Integer.toString(CadastroClienteActivity.this.cliente.getId()), Toast.LENGTH_LONG).show();
+                    if(CadastroClienteActivity.this.cliente.getId() == 0){
+                        clienteDAO.insere(CadastroClienteActivity.this.cliente);
+                    }
+                    else{
+                        clienteDAO.alterar(CadastroClienteActivity.this.cliente);
+                    }
+                    clienteDAO.buscaClientes();
                     clienteDAO.close();
                     finish();
+
                 }
             });
-        }
     }
 
     public void populaCadastro(Cliente cliente) {
         ClienteDAO clienteDAO = new ClienteDAO(CadastroClienteActivity.this);
+//        Toast.makeText(CadastroClienteActivity.this, Integer.toString(cliente.getId()), Toast.LENGTH_LONG).show();
 
         EditText campoNomeCliente = findViewById(R.id.cliente_nome);
         campoNomeCliente.setText(cliente.getNome());
@@ -82,6 +88,6 @@ public class CadastroClienteActivity extends AppCompatActivity {
         EditText campoEmailCliente = findViewById(R.id.cliente_email);
         campoEmailCliente.setText(cliente.getEmail());
 
-        this.cliente = cliente;
+//        this.cliente = cliente;
     }
 }

@@ -48,6 +48,7 @@ public class TelaCliente extends AppCompatActivity {
                 Cliente cliente = (Cliente) listaClientes.getItemAtPosition(position);
                 Intent intentCadastroCliente = new Intent(TelaCliente.this,CadastroClienteActivity.class);
                 intentCadastroCliente.putExtra("cliente",cliente);
+
                 startActivity(intentCadastroCliente);
                 Toast.makeText(TelaCliente.this,cliente.getNome(),Toast.LENGTH_SHORT).show();
             }
@@ -97,7 +98,7 @@ public class TelaCliente extends AppCompatActivity {
                     ActivityCompat.requestPermissions(TelaCliente.this, new String[]{Manifest.permission.CALL_PHONE},122 );
                 }else {
                     Intent intentLigar = new Intent(Intent.ACTION_CALL);
-                    intentLigar.setData(Uri.parse("Tel:" + cliente.getTelefone()));
+                    intentLigar.setData(Uri.parse("tel:" + "99998585"));
                     startActivity(intentLigar);
                 }
                 return false;
