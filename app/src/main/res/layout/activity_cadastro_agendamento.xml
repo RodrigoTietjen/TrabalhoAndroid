@@ -34,6 +34,15 @@
             android:hint="Cliente:" />
     </android.support.design.widget.TextInputLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btBuscar_procedimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar Procedimento"/>
+    </LinearLayout>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -45,16 +54,27 @@
             android:hint="Procedimento"/>
     </android.support.design.widget.TextInputLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btBuscar_profissional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar Profissional"/>
+    </LinearLayout>
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/agendamento_proprofissional_nome"
+            android:id="@+id/agendamento_profissional_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Profissional"/>
     </android.support.design.widget.TextInputLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

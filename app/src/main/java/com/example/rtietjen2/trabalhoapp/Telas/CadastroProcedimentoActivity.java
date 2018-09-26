@@ -64,7 +64,7 @@ public class CadastroProcedimentoActivity extends AppCompatActivity {
     }
 
     public void populaCadastro(Procedimento procedimento) {
-        ProcedimentoDAO procedimentoDAO = new ProcedimentoDAO(CadastroProcedimentoActivity.this);
+//        ProcedimentoDAO procedimentoDAO = new ProcedimentoDAO(CadastroProcedimentoActivity.this);
 
         EditText campoNomeProcedimento = findViewById(R.id.procedimento_nome);
         campoNomeProcedimento.setText(procedimento.getNome());

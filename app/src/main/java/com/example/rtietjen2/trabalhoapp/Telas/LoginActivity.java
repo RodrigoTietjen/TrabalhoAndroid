@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.rtietjen2.trabalhoapp.R;
+import com.example.rtietjen2.trabalhoapp.dao.ProcedimentoDAO;
 
 public class LoginActivity extends AppCompatActivity {
 

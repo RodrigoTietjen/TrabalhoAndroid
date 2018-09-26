@@ -19,7 +19,7 @@ public class ClienteDAO extends SQLiteOpenHelper {
     public Context context;
     public ClienteDAO(Context context) {
 
-        super(context, "Projeto", null, 5);
+        super(context, "Projeto", null, 10);
         this.context = context;
     }
 

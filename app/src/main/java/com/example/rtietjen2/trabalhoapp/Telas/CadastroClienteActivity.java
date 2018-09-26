@@ -76,7 +76,7 @@ public class CadastroClienteActivity extends AppCompatActivity {
     }
 
     public void populaCadastro(Cliente cliente) {
-        ClienteDAO clienteDAO = new ClienteDAO(CadastroClienteActivity.this);
+//        ClienteDAO clienteDAO = new ClienteDAO(CadastroClienteActivity.this);
 //        Toast.makeText(CadastroClienteActivity.this, Integer.toString(cliente.getId()), Toast.LENGTH_LONG).show();
 
         EditText campoNomeCliente = findViewById(R.id.cliente_nome);

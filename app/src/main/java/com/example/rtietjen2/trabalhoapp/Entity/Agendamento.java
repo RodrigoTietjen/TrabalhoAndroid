@@ -1,19 +1,30 @@
 package com.example.rtietjen2.trabalhoapp.Entity;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.List;
 
-public class Agendamento {
+public class Agendamento implements Serializable {
+
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     private LocalTime horaInicio;
 
     private LocalTime horaFim;
 
-    private Cliente cliente;
+    private String cliente;
 
-    private Profissional profissional;
+    private String profissional;
 
-    private Procedimento procedimentos;
+    private String procedimento;
 
     public LocalTime getHoraInicio() {
         return horaInicio;
@@ -31,27 +42,31 @@ public class Agendamento {
         this.horaFim = horaFim;
     }
 
-    public Cliente getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
-    public Profissional getProfissional() {
+    public String getProfissional() {
         return profissional;
     }
 
-    public void setProfissional(Profissional profissional) {
+    public void setProfissional(String profissional) {
         this.profissional = profissional;
     }
 
-    public Procedimento getProcedimentos() {
-        return procedimentos;
+    public String getProcedimento() {
+        return procedimento;
     }
 
-    public void setProcedimentos(Procedimento procedimentos) {
-        this.procedimentos = procedimentos;
+    public void setProcedimento(String procedimento) {
+        this.procedimento = procedimento;
+    }
+
+    public Agendamento() {
+
     }
 }

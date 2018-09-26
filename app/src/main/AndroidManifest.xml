@@ -31,6 +31,8 @@
         <activity android:name=".Telas.TelaAgendamento" />
         <activity android:name=".Telas.CadastroAgendamentoActivity" />
         <activity android:name=".Telas.ClienteSelecionado"></activity>
+        <activity android:name=".Telas.ProcedimentoSelecionado" />
+        <activity android:name=".Telas.ProfissionalSelecionado" />
     </application>
 
 </manifest>
