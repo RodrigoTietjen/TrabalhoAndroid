@@ -66,7 +66,8 @@ public class Agendamento implements Serializable {
         this.procedimento = procedimento;
     }
 
-    public Agendamento() {
-
+    @Override
+    public String toString() {
+        return getCliente() + "  " + getProcedimento() + " " + getProfissional();
     }
 }

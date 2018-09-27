@@ -16,7 +16,7 @@ public class ProcedimentoDAO extends SQLiteOpenHelper {
     public Context context;
 
     public ProcedimentoDAO(Context context) {
-        super(context, "Projeto", null, 10);
+        super(context, "Projeto", null, 13);
         this.context = context;
     }
 

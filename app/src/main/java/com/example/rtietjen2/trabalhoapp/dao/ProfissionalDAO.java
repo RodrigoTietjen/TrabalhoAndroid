@@ -15,7 +15,7 @@ public class ProfissionalDAO extends SQLiteOpenHelper{
 
     public Context context;
     public ProfissionalDAO(Context context) {
-        super(context, "Projeto", null, 10);
+        super(context, "Projeto", null, 13);
         this.context = context;
     }
 

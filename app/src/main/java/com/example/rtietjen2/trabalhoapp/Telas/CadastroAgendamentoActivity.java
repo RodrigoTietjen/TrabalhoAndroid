@@ -55,12 +55,11 @@ public class CadastroAgendamentoActivity extends AppCompatActivity {
                 CadastroAgendamentoActivity.this.agendamento.setProcedimento(cliente.getText().toString());
 
                 EditText procedimento = findViewById(R.id.agendamento_procedimento_nome);
-                CadastroAgendamentoActivity.this.cliente.setTelefone(procedimento.getText().toString());
+                CadastroAgendamentoActivity.this.agendamento.setProcedimento(procedimento.getText().toString());
 
                 EditText profissional = findViewById(R.id.agendamento_profissional_nome);
-                CadastroAgendamentoActivity.this.cliente.setEndereco(profissional.getText().toString());
+                CadastroAgendamentoActivity.this.agendamento.setProfissional(profissional.getText().toString());
 
-//                Toast.makeText(CadastroClienteActivity.this, Integer.toString(CadastroAgendamentoActivity.this.agendamento.getId()), Toast.LENGTH_LONG).show();
                 if(CadastroAgendamentoActivity.this.cliente.getId() == 0){
                     agendamentoDao.insere(CadastroAgendamentoActivity.this.agendamento);
                 }

@@ -27,8 +27,9 @@ public class TelaAgendamento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_agendamento);
 
-        listaAgendamentos = findViewById(R.id.lista_agendamento);
 
+        listaAgendamentos = findViewById(R.id.lista_agendamento);
+        carregarListaAgendamento();
         Button cadastarAgendamento = findViewById(R.id.btCadastrar_agendamento);
         cadastarAgendamento.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,9 +55,9 @@ public class TelaAgendamento extends AppCompatActivity {
         registerForContextMenu(listaAgendamentos);
     }
     private void carregarListaAgendamento() {
-        AgendamentoDAO procedimentoDAO = new AgendamentoDAO(this);
-        List<Agendamento> agendamentos = procedimentoDAO.buscaAgendamentos();
-        procedimentoDAO.close();
+        AgendamentoDAO agendamentoDAO = new AgendamentoDAO(this);
+        List<Agendamento> agendamentos = agendamentoDAO.buscaAgendamentos();
+        agendamentoDAO.close();
 
         ArrayAdapter<Agendamento> adapter = new ArrayAdapter<Agendamento>(this, android.R.layout.simple_list_item_1, agendamentos);
         listaAgendamentos.setAdapter(adapter);

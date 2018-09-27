@@ -33,10 +33,10 @@ public class ProcedimentoSelecionado extends AppCompatActivity {
         selecionaProcedimento.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> Lista, View item, int position, long id) {
-                Procedimento cliente = (Procedimento) selecionaProcedimento.getItemAtPosition(position);
+                Procedimento procedimento = (Procedimento) selecionaProcedimento.getItemAtPosition(position);
 
                 SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
-                editor.putString("procedimento", cliente.getNome());
+                editor.putString("procedimento", procedimento.getNome());
                 editor.apply();
                 finish();
 
